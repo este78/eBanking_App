@@ -1,12 +1,12 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "grpc.eBank.user";
-option java_outer_classname = "UserServiceImpl";
+option java_package = "grpc.eBank.login";
+option java_outer_classname = "LoginServiceImpl";
 
-package user;
+package login;
 
-service UserService{
+service LoginService{
 	rpc login(LoginRequest) returns (LoginResponse){}
 	rpc logout(LogoutRequest) returns (LogoutResponse){}
 	
@@ -31,4 +31,3 @@ message LogoutResponse{
 	int32 responseCode = 2;
 }
 
-message Empty{}
