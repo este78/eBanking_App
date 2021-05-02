@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "grpc.eBank.account";
+option java_outer_classname = "BalanceServiceImpl";
+
+package account;
+
+// Interface exported by the server.
+service BalanceService {
+
+	//sends a request to get the last few(5) transactions in a particular account
+  rpc requestTransactionHistory(TransactionRequest) returns (stream TransactionsResponse ) {}
+  
+    //gets the balance of multiple accounts a user may have, and returns the accumulated balance
+  rpc getBalance(stream UpdatedBalanceRequest) returns (UpdatedBalanceResponse){}
+}
+
+message TransactionRequest {
+	string account = 1;
+	int32 number =2;
+}
+
+message TransactionsResponse {
+	//entity represents the organisation/individual the account interacted with in the transaction
+	string entity  = 1;
+	//amount credited/debited in the transaction
+	double amount = 2;
+}
+
+message UpdatedBalanceRequest{
+	string account = 1;
+	double balance =2;
+}
+
+message UpdatedBalanceResponse{
+	double accumulatedBalance= 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "grpc.eBank.payments";
+option java_outer_classname = "PaymentServiceImpl";
+
+package payments;
+
+// Interface exported by the server.
+service PaymentService {
+ 
+  //sends multiple payments to single/multiple account(s) and returns an updated balance of the account(s) used to send the payment from
+  rpc sendMultiplePayments(stream PaymentRequest) returns (stream UpdateBalanceResponse ) {}
+   
+}
+
+message PaymentRequest {
+	string accountFrom = 1;
+	string accountTo = 2;
+	double amount = 3;	
+}
+
+message UpdateBalanceResponse {
+	string accountTo = 1;
+	string acknowledgement = 3;
+}
+
