@@ -86,6 +86,7 @@ public class AccountClient {
 															asyncStub.getBalance(responseObserver);
 
 			try {
+				
 				//{3000, -59, -400, -18.5, -33.60}
 				requestObserver.onNext(UpdatedBalanceRequest.newBuilder().setBalance(3000).build());
 				Thread.sleep(new Random().nextInt(1000) + 500);
@@ -96,12 +97,14 @@ public class AccountClient {
 				requestObserver.onNext(UpdatedBalanceRequest.newBuilder().setBalance(-18.5).build());
 				Thread.sleep(new Random().nextInt(1000) + 500);
 				requestObserver.onNext(UpdatedBalanceRequest.newBuilder().setBalance(-33.60).build());
-
+				Thread.sleep(new Random().nextInt(1000) + 500);
+				
 				System.out.println("GetBalance: SENDING MESSAGES");
-
 				// Mark the end of requests
 				requestObserver.onCompleted();
-		
+					
+				Thread.sleep(10000);
+				
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {			

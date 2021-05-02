@@ -110,8 +110,7 @@ public class AccountServer extends BalanceServiceImplBase {
 					@Override
 					public void onNext(UpdatedBalanceRequest msg) {
 						
-						System.out.println("receiving Account Number: "+ 
-											msg.getAccount() + " and Balance "+ msg.getBalance() );
+						System.out.println("receiving Balance "+ msg.getBalance() );
 						totalBalance += msg.getBalance();
 						
 					}
@@ -122,8 +121,7 @@ public class AccountServer extends BalanceServiceImplBase {
 					}
 					@Override
 					public void onCompleted() {
-						UpdatedBalanceResponse res = UpdatedBalanceResponse.newBuilder()
-															.setAccumulatedBalance(totalBalance).build();
+						UpdatedBalanceResponse res = UpdatedBalanceResponse.newBuilder().setAccumulatedBalance(totalBalance).build();
 				        System.out.println("Accumulated Balance: "+ res.getAccumulatedBalance() );
 						responseObserver.onNext(res);
 				        responseObserver.onCompleted();

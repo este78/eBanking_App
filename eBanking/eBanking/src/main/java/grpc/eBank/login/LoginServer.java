@@ -70,7 +70,7 @@ public class LoginServer extends LoginServiceImplBase {
 		LogoutResponse.Builder response = LogoutResponse.newBuilder();
 		System.out.println("Logging out username = " + username);
 
-		if(username.equals("Esteban")) {
+		if(username.equalsIgnoreCase("Esteban")) {
 			// return Success response
 			response.setResponseMessage(username + "....You have been logged out").setLogIn(false);
 		}
