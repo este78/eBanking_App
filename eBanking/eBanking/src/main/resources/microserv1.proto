@@ -7,13 +7,12 @@ option java_outer_classname = "BalanceServiceImpl";
 
 package account;
 
-// Interface exported by the server.
 service BalanceService {
 
-	//sends a request to get the last few(5) transactions in a particular account
+	//sends a request to get the last few transactions in a particular account
   rpc requestTransactionHistory(TransactionRequest) returns (stream TransactionsResponse ) {}
   
-    //gets the balance of multiple accounts a user may have, and returns the accumulated balance
+    //gets the last transactions and returns the accumulated balance
   rpc getBalance(stream UpdatedBalanceRequest) returns (UpdatedBalanceResponse){}
 }
 
@@ -23,9 +22,7 @@ message TransactionRequest {
 }
 
 message TransactionsResponse {
-	//entity represents the organisation/individual the account interacted with in the transaction
 	string entity  = 1;
-	//amount credited/debited in the transaction
 	double amount = 2;
 }
 

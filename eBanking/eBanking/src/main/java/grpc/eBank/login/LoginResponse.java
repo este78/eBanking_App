@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private LoginResponse() {
     responseMessage_ = "";
-    responseCode_ = 0;
     logIn_ = false;
   }
 
@@ -49,11 +48,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             responseMessage_ = s;
-            break;
-          }
-          case 16: {
-
-            responseCode_ = input.readInt32();
             break;
           }
           case 24: {
@@ -127,15 +121,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int RESPONSECODE_FIELD_NUMBER = 2;
-  private int responseCode_;
-  /**
-   * <code>int32 responseCode = 2;</code>
-   */
-  public int getResponseCode() {
-    return responseCode_;
-  }
-
   public static final int LOGIN_FIELD_NUMBER = 3;
   private boolean logIn_;
   /**
@@ -162,9 +147,6 @@ private static final long serialVersionUID = 0L;
     if (!getResponseMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, responseMessage_);
     }
-    if (responseCode_ != 0) {
-      output.writeInt32(2, responseCode_);
-    }
     if (logIn_ != false) {
       output.writeBool(3, logIn_);
     }
@@ -179,10 +161,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getResponseMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, responseMessage_);
-    }
-    if (responseCode_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, responseCode_);
     }
     if (logIn_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -206,8 +184,6 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getResponseMessage()
         .equals(other.getResponseMessage());
-    result = result && (getResponseCode()
-        == other.getResponseCode());
     result = result && (getLogIn()
         == other.getLogIn());
     result = result && unknownFields.equals(other.unknownFields);
@@ -223,8 +199,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + RESPONSEMESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getResponseMessage().hashCode();
-    hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
-    hash = (53 * hash) + getResponseCode();
     hash = (37 * hash) + LOGIN_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getLogIn());
@@ -363,8 +337,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       responseMessage_ = "";
 
-      responseCode_ = 0;
-
       logIn_ = false;
 
       return this;
@@ -394,7 +366,6 @@ private static final long serialVersionUID = 0L;
     public grpc.eBank.login.LoginResponse buildPartial() {
       grpc.eBank.login.LoginResponse result = new grpc.eBank.login.LoginResponse(this);
       result.responseMessage_ = responseMessage_;
-      result.responseCode_ = responseCode_;
       result.logIn_ = logIn_;
       onBuilt();
       return result;
@@ -447,9 +418,6 @@ private static final long serialVersionUID = 0L;
       if (!other.getResponseMessage().isEmpty()) {
         responseMessage_ = other.responseMessage_;
         onChanged();
-      }
-      if (other.getResponseCode() != 0) {
-        setResponseCode(other.getResponseCode());
       }
       if (other.getLogIn() != false) {
         setLogIn(other.getLogIn());
@@ -548,32 +516,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       responseMessage_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int responseCode_ ;
-    /**
-     * <code>int32 responseCode = 2;</code>
-     */
-    public int getResponseCode() {
-      return responseCode_;
-    }
-    /**
-     * <code>int32 responseCode = 2;</code>
-     */
-    public Builder setResponseCode(int value) {
-      
-      responseCode_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 responseCode = 2;</code>
-     */
-    public Builder clearResponseCode() {
-      
-      responseCode_ = 0;
       onChanged();
       return this;
     }

@@ -18,11 +18,6 @@ public interface LoginResponseOrBuilder extends
       getResponseMessageBytes();
 
   /**
-   * <code>int32 responseCode = 2;</code>
-   */
-  int getResponseCode();
-
-  /**
    * <code>bool logIn = 3;</code>
    */
   boolean getLogIn();

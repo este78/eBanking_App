@@ -44,18 +44,21 @@ public class PaymentServer extends PaymentServiceImplBase {
 	 }
 	 
 	 @Override
-	 public StreamObserver<PaymentRequest> sendMultiplePayments(StreamObserver<UpdateBalanceResponse> responseObserver) {
+	 public StreamObserver<PaymentRequest> sendMultiplePayments
+	 										(StreamObserver<UpdateBalanceResponse> responseObserver) {
 		return new StreamObserver<PaymentRequest>() {
 
 				@Override
 				public void onNext(PaymentRequest request) {
 						StringBuilder input1 = new StringBuilder(); 
-						//hard coded, at the moment it just creates strings with the messages sends strings back. In theory it should use the messages to
+						//hard coded, at the moment it just creates strings 
+						//with the messages sends strings back. In theory it should use the messages to
 						//contact and update accounts stored in a database
 			            input1.append(request.getAccountTo()+", €"+request.getAmount() ); 
 			            System.out.println(input1.toString());
 			            
-			            UpdateBalanceResponse reply = UpdateBalanceResponse.newBuilder().setAccountTo(input1.toString()).setAcknowledgement("Sent").build();
+			            UpdateBalanceResponse reply = UpdateBalanceResponse.newBuilder().
+			            			  setAccountTo(input1.toString()).setAcknowledgement("Sent").build();
 			      
 			            responseObserver.onNext(reply);	
 				}

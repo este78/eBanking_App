@@ -18,7 +18,7 @@ public interface LogoutResponseOrBuilder extends
       getResponseMessageBytes();
 
   /**
-   * <code>int32 responseCode = 2;</code>
+   * <code>bool logIn = 2;</code>
    */
-  int getResponseCode();
+  boolean getLogIn();
 }

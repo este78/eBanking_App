@@ -44,16 +44,16 @@ public final class LoginServiceImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\017microserv.proto\022\005login\"2\n\014LoginRequest" +
-      "\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"M\n\r" +
-      "LoginResponse\022\027\n\017responseMessage\030\001 \001(\t\022\024" +
-      "\n\014responseCode\030\002 \001(\005\022\r\n\005logIn\030\003 \001(\010\"!\n\rL" +
-      "ogoutRequest\022\020\n\010username\030\001 \001(\t\"?\n\016Logout" +
-      "Response\022\027\n\017responseMessage\030\001 \001(\t\022\024\n\014res" +
-      "ponseCode\030\002 \001(\0052}\n\014LoginService\0224\n\005login" +
-      "\022\023.login.LoginRequest\032\024.login.LoginRespo" +
-      "nse\"\000\0227\n\006logout\022\024.login.LogoutRequest\032\025." +
-      "login.LogoutResponse\"\000B&\n\020grpc.eBank.log" +
-      "inB\020LoginServiceImplP\001b\006proto3"
+      "\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"7\n\r" +
+      "LoginResponse\022\027\n\017responseMessage\030\001 \001(\t\022\r" +
+      "\n\005logIn\030\003 \001(\010\"!\n\rLogoutRequest\022\020\n\010userna" +
+      "me\030\001 \001(\t\"8\n\016LogoutResponse\022\027\n\017responseMe" +
+      "ssage\030\001 \001(\t\022\r\n\005logIn\030\002 \001(\0102}\n\014LoginServi" +
+      "ce\0224\n\005login\022\023.login.LoginRequest\032\024.login" +
+      ".LoginResponse\"\000\0227\n\006logout\022\024.login.Logou" +
+      "tRequest\032\025.login.LogoutResponse\"\000B&\n\020grp" +
+      "c.eBank.loginB\020LoginServiceImplP\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -78,7 +78,7 @@ public final class LoginServiceImpl {
     internal_static_login_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_login_LoginResponse_descriptor,
-        new java.lang.String[] { "ResponseMessage", "ResponseCode", "LogIn", });
+        new java.lang.String[] { "ResponseMessage", "LogIn", });
     internal_static_login_LogoutRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_login_LogoutRequest_fieldAccessorTable = new
@@ -90,7 +90,7 @@ public final class LoginServiceImpl {
     internal_static_login_LogoutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_login_LogoutResponse_descriptor,
-        new java.lang.String[] { "ResponseMessage", "ResponseCode", });
+        new java.lang.String[] { "ResponseMessage", "LogIn", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

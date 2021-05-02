@@ -90,10 +90,6 @@ private static final long serialVersionUID = 0L;
   public static final int ENTITY_FIELD_NUMBER = 1;
   private volatile java.lang.Object entity_;
   /**
-   * <pre>
-   *entity represents the organisation/individual the account interacted with in the transaction
-   * </pre>
-   *
    * <code>string entity = 1;</code>
    */
   public java.lang.String getEntity() {
@@ -109,10 +105,6 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   *entity represents the organisation/individual the account interacted with in the transaction
-   * </pre>
-   *
    * <code>string entity = 1;</code>
    */
   public com.google.protobuf.ByteString
@@ -132,10 +124,6 @@ private static final long serialVersionUID = 0L;
   public static final int AMOUNT_FIELD_NUMBER = 2;
   private double amount_;
   /**
-   * <pre>
-   *amount credited/debited in the transaction
-   * </pre>
-   *
    * <code>double amount = 2;</code>
    */
   public double getAmount() {
@@ -467,10 +455,6 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object entity_ = "";
     /**
-     * <pre>
-     *entity represents the organisation/individual the account interacted with in the transaction
-     * </pre>
-     *
      * <code>string entity = 1;</code>
      */
     public java.lang.String getEntity() {
@@ -486,10 +470,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     *entity represents the organisation/individual the account interacted with in the transaction
-     * </pre>
-     *
      * <code>string entity = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -506,10 +486,6 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     *entity represents the organisation/individual the account interacted with in the transaction
-     * </pre>
-     *
      * <code>string entity = 1;</code>
      */
     public Builder setEntity(
@@ -523,10 +499,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *entity represents the organisation/individual the account interacted with in the transaction
-     * </pre>
-     *
      * <code>string entity = 1;</code>
      */
     public Builder clearEntity() {
@@ -536,10 +508,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *entity represents the organisation/individual the account interacted with in the transaction
-     * </pre>
-     *
      * <code>string entity = 1;</code>
      */
     public Builder setEntityBytes(
@@ -556,20 +524,12 @@ private static final long serialVersionUID = 0L;
 
     private double amount_ ;
     /**
-     * <pre>
-     *amount credited/debited in the transaction
-     * </pre>
-     *
      * <code>double amount = 2;</code>
      */
     public double getAmount() {
       return amount_;
     }
     /**
-     * <pre>
-     *amount credited/debited in the transaction
-     * </pre>
-     *
      * <code>double amount = 2;</code>
      */
     public Builder setAmount(double value) {
@@ -579,10 +539,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     *amount credited/debited in the transaction
-     * </pre>
-     *
      * <code>double amount = 2;</code>
      */
     public Builder clearAmount() {

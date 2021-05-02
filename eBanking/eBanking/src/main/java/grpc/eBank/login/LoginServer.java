@@ -14,7 +14,8 @@ public class LoginServer extends LoginServiceImplBase {
 		// TODO Auto-generated method stub
 		System.out.println("Starting gRPC Login Server");
 		LoginServer userserver = new LoginServer();
-
+		
+		//Registration
 		int port = 50050;
 		SimpleServiceRegistration ssr = new SimpleServiceRegistration();
 		ssr.run(port,"_http_tcp_local.", "LoginServer");
@@ -28,7 +29,7 @@ public class LoginServer extends LoginServiceImplBase {
 			System.out.println("Server started with Port:" + server.getPort());
 		    server.awaitTermination();
 
-		}//try
+		}
 		catch(IOException e){
 			e.printStackTrace();
 		}
@@ -40,7 +41,7 @@ public class LoginServer extends LoginServiceImplBase {
 
 	@Override
 	public void login(LoginRequest request, StreamObserver<LoginResponse> responseObserver) {
-		System.out.println("Inside UserService::Login()");
+		System.out.println("Initiating login");
 		String username = request.getUsername();
 		String password = request.getPassword();
 
@@ -49,11 +50,11 @@ public class LoginServer extends LoginServiceImplBase {
 
 		if(username.equalsIgnoreCase("Esteban") && password.equals("InVino")) {
 			// return Success response
-			response.setResponseCode(1).setResponseMessage(username + ".....Successfully logged in").setLogIn(true);
+			response.setResponseMessage(username + "...You are logged in").setLogIn(true);
 		}
 		else {
 			// return Success response
-			response.setResponseCode(99).setResponseMessage(username + "... Sorry Login Failed").setLogIn(false);
+			response.setResponseMessage(username + "...Login Failed").setLogIn(false);
 		}
 
 		responseObserver.onNext(response.build());
@@ -61,11 +62,9 @@ public class LoginServer extends LoginServiceImplBase {
 	}
 
 
-
-
 	@Override
 	public void logout(LogoutRequest request, StreamObserver<LogoutResponse> responseObserver) {
-		System.out.println("Inside UserService::Logout()");
+		System.out.println("Initiatin logout");
 		String username = request.getUsername();
 
 		LogoutResponse.Builder response = LogoutResponse.newBuilder();
@@ -73,12 +72,12 @@ public class LoginServer extends LoginServiceImplBase {
 
 		if(username.equals("Esteban")) {
 			// return Success response
-			response.setResponseCode(1).setResponseMessage(username + ".....Successfully logged out");
+			response.setResponseMessage(username + "....You have been logged out").setLogIn(false);
 		}
 		else {
 			// return Success response
-			response.setResponseCode(99).setResponseMessage(username +
-					"... Sorry Logout Failed, user not logged in: " + username);
+			response.setResponseMessage(username +
+					"...Logout Failed, can't find " + username);
 		}
 
 		responseObserver.onNext(response.build());

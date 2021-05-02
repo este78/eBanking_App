@@ -16,9 +16,6 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
- * <pre>
- * Interface exported by the server.
- * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
@@ -118,15 +115,12 @@ public final class BalanceServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static abstract class BalanceServiceImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
-     *sends a request to get the last few(5) transactions in a particular account
+     *sends a request to get the last few transactions in a particular account
      * </pre>
      */
     public void requestTransactionHistory(grpc.eBank.account.TransactionRequest request,
@@ -136,7 +130,7 @@ public final class BalanceServiceGrpc {
 
     /**
      * <pre>
-     *gets the balance of multiple accounts a user may have, and returns the accumulated balance
+     *gets the last transactions and returns the accumulated balance
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.eBank.account.UpdatedBalanceRequest> getBalance(
@@ -165,9 +159,6 @@ public final class BalanceServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static final class BalanceServiceStub extends io.grpc.stub.AbstractStub<BalanceServiceStub> {
     private BalanceServiceStub(io.grpc.Channel channel) {
@@ -187,7 +178,7 @@ public final class BalanceServiceGrpc {
 
     /**
      * <pre>
-     *sends a request to get the last few(5) transactions in a particular account
+     *sends a request to get the last few transactions in a particular account
      * </pre>
      */
     public void requestTransactionHistory(grpc.eBank.account.TransactionRequest request,
@@ -198,7 +189,7 @@ public final class BalanceServiceGrpc {
 
     /**
      * <pre>
-     *gets the balance of multiple accounts a user may have, and returns the accumulated balance
+     *gets the last transactions and returns the accumulated balance
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.eBank.account.UpdatedBalanceRequest> getBalance(
@@ -209,9 +200,6 @@ public final class BalanceServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static final class BalanceServiceBlockingStub extends io.grpc.stub.AbstractStub<BalanceServiceBlockingStub> {
     private BalanceServiceBlockingStub(io.grpc.Channel channel) {
@@ -231,7 +219,7 @@ public final class BalanceServiceGrpc {
 
     /**
      * <pre>
-     *sends a request to get the last few(5) transactions in a particular account
+     *sends a request to get the last few transactions in a particular account
      * </pre>
      */
     public java.util.Iterator<grpc.eBank.account.TransactionsResponse> requestTransactionHistory(
@@ -242,9 +230,6 @@ public final class BalanceServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static final class BalanceServiceFutureStub extends io.grpc.stub.AbstractStub<BalanceServiceFutureStub> {
     private BalanceServiceFutureStub(io.grpc.Channel channel) {

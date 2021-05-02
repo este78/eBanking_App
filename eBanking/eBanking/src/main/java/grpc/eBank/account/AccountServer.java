@@ -42,21 +42,24 @@ public class AccountServer extends BalanceServiceImplBase {
 	 }
 	 
 	 @Override
-	 public void requestTransactionHistory (TransactionRequest request, StreamObserver<TransactionsResponse> responseObserver) {
+	 public void requestTransactionHistory (TransactionRequest request, 
+			 					StreamObserver<TransactionsResponse> responseObserver) {
 		 	
 			//hard coded 2 accounts as an example
-			String [] accounts = {"account1", "account2"};
 			String [] account1 = {"Trinity Plaza Ltd.", "Airtricity", "ESB Mortgage","Greyhound", "Sky"};
 			double [] account1subtotals = {3000, -59, -400, -18.5, -33.60};
 			String [] account2 = {"SuperValu", "Account 1", "Netflix","Amazon", "Post Office"};
 			double [] account2subtotals = {-67.56, 100, -14.5, -25.78, -13.60};
 			
-
 			//iterate through the array of transactions and output the entity and amount
 			if(request.getAccount().equalsIgnoreCase("account1")) {
 				for(int j= request.getNumber()-1 ; j>=0 ;j--) {
-					TransactionsResponse reply = TransactionsResponse.newBuilder().setEntity(account1[j]).setAmount(account1subtotals[j]).build();
+					
+					TransactionsResponse reply = TransactionsResponse.newBuilder().
+											setEntity(account1[j]).setAmount(account1subtotals[j]).build();
+					
 					System.out.println(account1[j] + " "+ account1subtotals[j]);
+					
 					responseObserver.onNext(reply);
 					try {
 						//wait for a second
@@ -97,7 +100,8 @@ public class AccountServer extends BalanceServiceImplBase {
 	 
 	 
 	 @Override
-	 public StreamObserver<UpdatedBalanceRequest> getBalance(StreamObserver<UpdatedBalanceResponse> responseObserver) {
+	 public StreamObserver<UpdatedBalanceRequest> getBalance
+	 										(StreamObserver<UpdatedBalanceResponse> responseObserver) {
 						
 				return new StreamObserver<UpdatedBalanceRequest>() {
 					
@@ -106,21 +110,20 @@ public class AccountServer extends BalanceServiceImplBase {
 					@Override
 					public void onNext(UpdatedBalanceRequest msg) {
 						
-						System.out.println("receiving Account Number: "+ msg.getAccount() + " and Balance "+
-																								msg.getBalance() );
+						System.out.println("receiving Account Number: "+ 
+											msg.getAccount() + " and Balance "+ msg.getBalance() );
 						totalBalance += msg.getBalance();
 						
 					}
-
 					@Override
 					public void onError(Throwable t) {
 						// TODO Auto-generated method stub
 						
 					}
-
 					@Override
 					public void onCompleted() {
-						UpdatedBalanceResponse res = UpdatedBalanceResponse.newBuilder().setAccumulatedBalance(totalBalance).build();
+						UpdatedBalanceResponse res = UpdatedBalanceResponse.newBuilder()
+															.setAccumulatedBalance(totalBalance).build();
 				        System.out.println("Accumulated Balance: "+ res.getAccumulatedBalance() );
 						responseObserver.onNext(res);
 				        responseObserver.onCompleted();

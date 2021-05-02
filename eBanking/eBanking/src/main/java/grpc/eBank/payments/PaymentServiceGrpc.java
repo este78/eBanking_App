@@ -16,9 +16,6 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
- * <pre>
- * Interface exported by the server.
- * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
@@ -86,15 +83,12 @@ public final class PaymentServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static abstract class PaymentServiceImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
-     *sends multiple payments to single/multiple account(s) and returns an updated balance of the account(s) used to send the payment from
+     *sends multiple payments to single/multiple account(s) 
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.eBank.payments.PaymentRequest> sendMultiplePayments(
@@ -116,9 +110,6 @@ public final class PaymentServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static final class PaymentServiceStub extends io.grpc.stub.AbstractStub<PaymentServiceStub> {
     private PaymentServiceStub(io.grpc.Channel channel) {
@@ -138,7 +129,7 @@ public final class PaymentServiceGrpc {
 
     /**
      * <pre>
-     *sends multiple payments to single/multiple account(s) and returns an updated balance of the account(s) used to send the payment from
+     *sends multiple payments to single/multiple account(s) 
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.eBank.payments.PaymentRequest> sendMultiplePayments(
@@ -149,9 +140,6 @@ public final class PaymentServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static final class PaymentServiceBlockingStub extends io.grpc.stub.AbstractStub<PaymentServiceBlockingStub> {
     private PaymentServiceBlockingStub(io.grpc.Channel channel) {
@@ -171,9 +159,6 @@ public final class PaymentServiceGrpc {
   }
 
   /**
-   * <pre>
-   * Interface exported by the server.
-   * </pre>
    */
   public static final class PaymentServiceFutureStub extends io.grpc.stub.AbstractStub<PaymentServiceFutureStub> {
     private PaymentServiceFutureStub(io.grpc.Channel channel) {

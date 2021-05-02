@@ -8,28 +8,16 @@ public interface TransactionsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <pre>
-   *entity represents the organisation/individual the account interacted with in the transaction
-   * </pre>
-   *
    * <code>string entity = 1;</code>
    */
   java.lang.String getEntity();
   /**
-   * <pre>
-   *entity represents the organisation/individual the account interacted with in the transaction
-   * </pre>
-   *
    * <code>string entity = 1;</code>
    */
   com.google.protobuf.ByteString
       getEntityBytes();
 
   /**
-   * <pre>
-   *amount credited/debited in the transaction
-   * </pre>
-   *
    * <code>double amount = 2;</code>
    */
   double getAmount();

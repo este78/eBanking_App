@@ -15,7 +15,8 @@ public class LoginClient {
 				//serviceInfo = SimpleServiceDiscovery.run(service_type);
 				//int port = serviceInfo.getPort();
 		int port= 50050;
-		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", port).usePlaintext().build();
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", port)
+															.usePlaintext().build();
 
 		blockingStub = LoginServiceGrpc.newBlockingStub(channel);
 
@@ -37,7 +38,8 @@ public class LoginClient {
 	public static void login() {
 		System.out.println("Inside Login in Client: ");
 
-		LoginRequest loginRequest = LoginRequest.newBuilder().setUsername("Esteban").setPassword("InVino").build();
+		LoginRequest loginRequest = LoginRequest.newBuilder().setUsername("Esteban").
+																setPassword("InVino").build();
 
 		LoginResponse response = blockingStub.login(loginRequest);
 

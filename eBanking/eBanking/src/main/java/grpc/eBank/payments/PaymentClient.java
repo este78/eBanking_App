@@ -62,24 +62,23 @@ public static void sendMultiplePayments() {
 
 		try {
 			System.out.println("Payments: SENDING MESSAGES");
-			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 1").setAccountTo("Andy").setAmount(500).build() );
+			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 1").
+															setAccountTo("Andy").setAmount(500).build() );
 			Thread.sleep(new Random().nextInt(1000) + 500);
-			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 2").setAccountTo("Maggie").setAmount(20).build() );
+			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 2").
+															setAccountTo("Maggie").setAmount(20).build() );
 			Thread.sleep(new Random().nextInt(1000) + 500);
-			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 1").setAccountTo("Juana").setAmount(2000).build() );
+			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 1").
+															setAccountTo("Juana").setAmount(2000).build() );
 			Thread.sleep(new Random().nextInt(1000) + 500);
-			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 1").setAccountTo("Ultan").setAmount(3000).build() );
+			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 1").
+															setAccountTo("Ultan").setAmount(3000).build() );
 			Thread.sleep(new Random().nextInt(1000) + 500);
-			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 2").setAccountTo("Siobhan").setAmount(2500).build() );
-			Thread.sleep(new Random().nextInt(1000) + 500);
+			requestObserver.onNext(PaymentRequest.newBuilder().setAccountFrom("Account 2").
+															setAccountTo("Siobhan").setAmount(2500).build() );
 
 			// Mark the end of requests
 			requestObserver.onCompleted();
-
-
-			// Sleep for a bit before sending the next one.
-			
-
 
 		} catch (RuntimeException e) {
 			e.printStackTrace();

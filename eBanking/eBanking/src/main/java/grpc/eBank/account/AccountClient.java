@@ -38,10 +38,13 @@ public class AccountClient {
 	//server side streaming
 	public static void requestTransactionHistory() {
 		
-		TransactionRequest transactionRequest = TransactionRequest.newBuilder().setAccount("Account1").setNumber(5).build();
+		TransactionRequest transactionRequest = TransactionRequest.newBuilder()
+												.setAccount("Account1").setNumber(5).build();
 		System.out.println("Requesting transaction history: "+transactionRequest.getAccount());
+		
 		try {
-			Iterator<TransactionsResponse> responses = blockingStub.requestTransactionHistory(transactionRequest);
+			Iterator<TransactionsResponse> responses = 
+									blockingStub.requestTransactionHistory(transactionRequest);
 
 			while(responses.hasNext()) {
 				TransactionsResponse temp = responses.next();
@@ -56,7 +59,8 @@ public class AccountClient {
 	//Client side streaming
 	public static void getBalance() {
 
-			StreamObserver<UpdatedBalanceResponse> responseObserver = new StreamObserver<UpdatedBalanceResponse>() {
+			StreamObserver<UpdatedBalanceResponse> responseObserver = 
+												new StreamObserver<UpdatedBalanceResponse>() {
 
 				@Override
 				public void onNext(UpdatedBalanceResponse value) {
@@ -78,7 +82,8 @@ public class AccountClient {
 			};
 
 			//
-			StreamObserver<UpdatedBalanceRequest> requestObserver = asyncStub.getBalance(responseObserver);
+			StreamObserver<UpdatedBalanceRequest> requestObserver = 
+															asyncStub.getBalance(responseObserver);
 
 			try {
 				//{3000, -59, -400, -18.5, -33.60}
@@ -96,12 +101,7 @@ public class AccountClient {
 
 				// Mark the end of requests
 				requestObserver.onCompleted();
-
-
-				// Sleep for a bit before sending the next one.
-				Thread.sleep(new Random().nextInt(1000) + 500);
-
-
+		
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {			

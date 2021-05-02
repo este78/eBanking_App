@@ -19,7 +19,6 @@ message LoginRequest{
 
 message LoginResponse{
 	string responseMessage = 1;
-	int32 responseCode = 2;
 	bool logIn = 3;
 }
 
@@ -29,6 +28,6 @@ message LogoutRequest{
 
 message LogoutResponse{
 	string responseMessage = 1;
-	int32 responseCode = 2;
+	bool logIn = 2;
 }
 

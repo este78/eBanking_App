@@ -7,10 +7,10 @@ option java_outer_classname = "PaymentServiceImpl";
 
 package payments;
 
-// Interface exported by the server.
+
 service PaymentService {
  
-  //sends multiple payments to single/multiple account(s) and returns an updated balance of the account(s) used to send the payment from
+  //sends multiple payments to single/multiple account(s) 
   rpc sendMultiplePayments(stream PaymentRequest) returns (stream UpdateBalanceResponse ) {}
    
 }
